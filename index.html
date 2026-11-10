@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Набережные Челны: Начало</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <header>
+            <span id="ui-day">День 1</span>
+            <span id="ui-time">Утро</span>
+            <span id="ui-money">💵 500₽</span>
+        </header>
+
+        <div id="main-content">
+            <!-- Экран 1: Главное меню -->
+            <div id="screen-main" class="screen">
+                <h2 style="text-align: center;">Набережные Челны</h2>
+                <p style="text-align: center; color: #888;">Твой первый день в новом городе...</p>
+                <div class="menu-grid" style="margin-top: 20px;">
+                    <button onclick="showScreen('screen-map')">🗺️ Карта</button>
+                    <button class="secondary-btn" onclick="alert('Контакты пока пусты. Иди знакомиться!')">👥 Контакты</button>
+                    <button class="secondary-btn" onclick="alert('В карманах пусто. Надо найти работу.')">🎒 Инвентарь</button>
+                    <button class="secondary-btn" onclick="alert('Смартфон разряжен. Купи зарядку.')">📱 Смартфон</button>
+                </div>
+            </div>
+
+            <!-- Экран 2: Карта -->
+            <div id="screen-map" class="screen hidden">
+                <h3>Куда пойдем?</h3>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <button onclick="goToLocation('Общежитие')">🏠 Общежитие</button>
+                    <button onclick="goToLocation('Кампус')">🎓 Кампус</button>
+                    <button onclick="goToLocation('Центр')">🏙️ Центр (Площадь, Кафе)</button>
+                    <button onclick="goToLocation('Клуб Маяк')">🎸 Клуб «Маяк»</button>
+                    <button onclick="goToLocation('Офис Пиксель')">💻 Офис «Пиксель»</button>
+                    <button onclick="goToLocation('Парк')">🌳 Парк и набережная</button>
+                </div>
+                <button class="secondary-btn" style="margin-top: 20px;" onclick="showScreen('screen-main')">⬅️ Назад</button>
+            </div>
+
+            <!-- Экран 3: Локация -->
+            <div id="screen-location" class="screen hidden">
+                <h3 id="loc-title">Локация</h3>
+                <div class="log-box" id="loc-log">
+                    Ты находишься здесь.
+                </div>
+                <div id="loc-actions" style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+                    <!-- Действия будут генерироваться в JS -->
+                </div>
+                <button class="secondary-btn" style="margin-top: 20px;" onclick="showScreen('screen-map')">⬅️ На карту</button>
+            </div>
+            
+            <!-- Экран 4: Диалог -->
+            <div id="screen-dialog" class="screen hidden">
+                <h3 id="npc-name">Имя NPC</h3>
+                <div class="log-box" id="npc-text" style="flex: 1; margin-bottom: 15px;">
+                    Привет!
+                </div>
+                <div id="dialog-options" style="display: flex; flex-direction: column; gap: 10px;">
+                     <!-- Варианты ответов -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
